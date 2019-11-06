@@ -36,7 +36,7 @@ class block_sritoniviewdocs extends block_list {
             }
 
         $this->content = new stdClass();
-        $this->content->text   = 'The content of our SimpleHTML block!';
+        $this->content->text   = 'The content of my reports block!';
         $this->content->footer = '===========';
         $this->content->items = array();
         $this->content->icons = array();
@@ -70,9 +70,9 @@ class block_sritoniviewdocs extends block_list {
                      'my'                 => true,
                      'site'               => true,
                      'site-index'         => true,
-                     'course-view'        => true,
+                     'course-view'        => false,
                      'course-view-social' => false,
-                     'mod'                => true,
+                     'mod'                => false,
                      'mod-quiz'           => false);
     }
 

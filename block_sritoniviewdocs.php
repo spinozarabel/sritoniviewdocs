@@ -72,7 +72,7 @@ class block_sritoniviewdocs extends block_list {
                      'site-index'         => true,
                      'course-view'        => true,
                      'course-view-social' => false,
-                     'mod'                => false,
+                     'mod'                => true,
                      'mod-quiz'           => false);
     }
 

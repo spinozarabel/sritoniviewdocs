@@ -46,7 +46,7 @@ class block_sritoniviewdocs extends block_list {
         $json_documentids = $DB->get_record('user_info_data', array(
                                                               		  'userid'   =>  $USER->id,
                                                               		  'fieldid'  =>  $field->id));
-        error_log('json coded string: ' . $json_documentids );
+        error_log('json coded string: ' . $json_documentids->data );
         // JSON decode the into an array
         $docid_arr  = json_decode(	$json_documentids->data, true );
         error_log(print_r($docid_arr, true));

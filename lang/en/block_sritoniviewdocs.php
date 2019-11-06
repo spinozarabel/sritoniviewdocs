@@ -27,5 +27,5 @@ $string['headerconfig'] = 'Config section header';
 $string['labelfoo'] = 'Config label';
 $string['sritoniviewdocs:addinstance'] = 'Add a sritoniviewdocs block';
 $string['sritoniviewdocs:myaddinstance'] = 'Add a sritoniviewdocs block to my moodle';
-$string['pluginname'] = 'Sritoni View Your Docs';
-$string['sritoniviewdocs'] = 'SriToni View Your Docs';
+$string['pluginname'] = 'My Reports';
+$string['sritoniviewdocs'] = 'My Reports';

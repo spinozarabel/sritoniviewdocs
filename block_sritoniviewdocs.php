@@ -37,7 +37,7 @@ class block_sritoniviewdocs extends block_list {
 
         $this->content = new stdClass();
         $this->content->text   = 'The content of our SimpleHTML block!';
-        $this->content->footer = 'Footer here...';
+        $this->content->footer = '===========';
         $this->content->items = array();
         $this->content->icons = array();
 
@@ -56,9 +56,10 @@ class block_sritoniviewdocs extends block_list {
         foreach ($docid_arr AS $key => $doc)
         {
             $docid        = $doc["fileId"];
-            $documentName = $doc["documentName"];
+            $documentName = format_string($doc["documentName"]);
             $docurl       = 'https://drive.google.com/open?id=' . $docid;
-            $this->content->items[] = $docurl;
+            $attrs        = ['alt' => $documentName];
+            $this->content->items[] = \html_writer::link($docurl, $documentName, $attrs);
         }
 
         return $this->content;

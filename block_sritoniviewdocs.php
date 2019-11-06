@@ -34,11 +34,7 @@ class block_sritoniviewdocs extends block_list {
             {
                 return $this->content;
             }
-        if (empty($this->instance))
-            {
-                $this->content = '';
-                return $this->content;
-            }
+        
         $this->content = new stdClass();
         $this->content->text   = 'The content of our SimpleHTML block!';
         $this->content->footer = 'Footer here...';

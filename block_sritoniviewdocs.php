@@ -44,13 +44,31 @@ class block_sritoniviewdocs extends block_list {
         $this->content->footer = 'Footer here...';
         $this->content->items = array();
         $this->content->icons = array();
-        
+
+        // fetch data of user profile field containing the document ids
+        $field = $DB->get_record('user_info_field', array('shortname' => 'documentlinks'));
+        $json_documentids = $DB->get_record('user_info_data', array(
+                                                              		  'userid'   =>  $USER->id,
+                                                              		  'fieldid'  =>  $field->id));
+        // JSON decode the into an object
+        $docid_obj  = json_decode(	$user_documentlinks->data, false );
+
+        // loop through the object for eac of the documentlinks
+        foreach ($docid_obj AS $key => $doc)
+        {
+            $docid        = $doc->fileId;
+            $documentName = $doc->documentName;
+            $docurl       = 'https://drive.google.com/open?id=' . $docid;
+            $this->content->items[] = $docurl;
+        }
+
         return $this->content;
     }
     // my moodle can only have SITEID and it's redundant here, so take it away
     public function applicable_formats()
     {
         return array('all'                => false,
+                     'my'                 => true,
                      'site'               => true,
                      'site-index'         => true,
                      'course-view'        => true,
@@ -67,14 +85,5 @@ class block_sritoniviewdocs extends block_list {
     function has_config()
     {
         return true;
-    }
-
-    public function cron()
-    {
-            mtrace( "Hey, my cron script is running" );
-
-                 // do something
-
-            return true;
     }
 }

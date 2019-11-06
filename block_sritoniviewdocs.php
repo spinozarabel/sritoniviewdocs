@@ -70,7 +70,7 @@ class block_sritoniviewdocs extends block_list {
         return array('all'                => false,
                      'site'               => true,
                      'site-index'         => true,
-                     'course-view'        => false,
+                     'course-view'        => true,
                      'course-view-social' => false,
                      'mod'                => false,
                      'mod-quiz'           => false);

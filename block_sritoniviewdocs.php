@@ -47,10 +47,9 @@ class block_sritoniviewdocs extends block_list {
                                                               		  'userid'   =>  $USER->id,
                                                               		  'fieldid'  =>  $field->id));
         $json_notags = strip_tags(html_entity_decode($json_documentids->data));
-        error_log('json coded string: ' . $json_notags );
+
         // JSON decode the into an array
         $docid_arr  = json_decode(	$json_notags, true );
-        error_log(print_r($docid_arr, true));
 
         // loop through the object for eac of the documentlinks
         foreach ($docid_arr AS $key => $doc)

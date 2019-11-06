@@ -40,28 +40,11 @@ class block_sritoniviewdocs extends block_list {
                 return $this->content;
             }
         $this->content = new stdClass();
+        $this->content->text   = 'The content of our SimpleHTML block!';
+        $this->content->footer = 'Footer here...';
         $this->content->items = array();
         $this->content->icons = array();
-        $this->content->footer = '';
-        // user/index.php expect course context, so get one if page has module context.
-        $currentcontext = $this->page->context->get_course_context(false);
-        if (! empty($this->config->text))
-            {
-                $this->content->text = $this->config->text;
-            }
-        $this->content = '';
-        if (empty($currentcontext))
-            {
-                return $this->content;
-            }
-        if ($this->page->course->id == SITEID)
-            {
-                $this->content->text .= "site context";
-            }
-        if (! empty($this->config->text))
-            {
-                $this->content->text .= $this->config->text;
-            }
+        
         return $this->content;
     }
     // my moodle can only have SITEID and it's redundant here, so take it away

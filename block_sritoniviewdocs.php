@@ -47,7 +47,7 @@ class block_sritoniviewdocs extends block_list {
                                                               		  'userid'   =>  $USER->id,
                                                               		  'fieldid'  =>  $field->id));
         // JSON decode the into an array
-        $docid_arr  = json_decode(	$user_documentlinks->data, true );
+        $docid_arr  = json_decode(	$json_documentids->data, true );
 
         // loop through the object for eac of the documentlinks
         foreach ($docid_arr AS $key => $doc)

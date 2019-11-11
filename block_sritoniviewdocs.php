@@ -52,14 +52,20 @@ class block_sritoniviewdocs extends block_list {
         if ( !is_string($json_notags) )
         {
             // log the bad array_count_values
-            error_log("Bad value for variable json_notags in line 55 of block_sritoniviewdocs.php");
+            error_log("Error - variable json_notags is NOT a string - line 55 block_sritoniviewdocs.php");
             error_log(print_r($json_notags ,true));
 
             $json_notags = "[]";
         }
 
-        // JSON decode the into an array if no error. If error set to blank array
-        $docid_arr  = (json_last_error() == JSON_ERROR_NONE) ? json_decode(	$json_notags, true ) : [];
+        // JSON decode the into an array
+        $docid_arr  = json_decode(	$json_notags, true );
+        if (json_last_error() != JSON_ERROR_NONE)
+        {
+            // error in json_decode, log variable and set array to blank
+            error_log('string variable json_notags is not proper JSON: ' . $json_notags);
+            $docid_arr = [];
+        }
 
         // loop through the object for eac of the documentlinks
         foreach ($docid_arr AS $key => $doc)

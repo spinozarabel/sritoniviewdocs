@@ -48,8 +48,18 @@ class block_sritoniviewdocs extends block_list {
                                                               		  'fieldid'  =>  $field->id));
         $json_notags = strip_tags(html_entity_decode($json_documentids->data));
 
-        // JSON decode the into an array
-        $docid_arr  = json_decode(	$json_notags, true );
+        // check that this is a string before json_decode
+        if ( !isString($json_notags) )
+        {
+            // log the bad array_count_values
+            error_log("Bad value for variable json_notags");
+            error_log(print_r($json_notags ,true));
+
+            $json_notags = "[]";
+        }
+
+        // JSON decode the into an array if no error. If error set to blank array
+        $docid_arr  = (json_last_error() == JSON_ERROR_NONE) ? json_decode(	$json_notags, true ) : [];
 
         // loop through the object for eac of the documentlinks
         foreach ($docid_arr AS $key => $doc)

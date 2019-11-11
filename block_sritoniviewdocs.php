@@ -52,7 +52,7 @@ class block_sritoniviewdocs extends block_list {
         if ( !is_string($json_notags) )
         {
             // log the bad array_count_values
-            error_log("Bad value for variable json_notags");
+            error_log("Bad value for variable json_notags in line 55 of block_sritoniviewdocs.php");
             error_log(print_r($json_notags ,true));
 
             $json_notags = "[]";

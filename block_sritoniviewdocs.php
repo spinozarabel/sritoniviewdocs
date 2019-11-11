@@ -49,7 +49,7 @@ class block_sritoniviewdocs extends block_list {
         $json_notags = strip_tags(html_entity_decode($json_documentids->data));
 
         // check that this is a string before json_decode
-        if ( !isString($json_notags) )
+        if ( !is_string($json_notags) )
         {
             // log the bad array_count_values
             error_log("Bad value for variable json_notags");

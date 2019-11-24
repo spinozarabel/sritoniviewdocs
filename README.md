@@ -5,8 +5,8 @@ The block assumes that there is a user profile field containing a text string wi
 
 The data in the array before JSON encoding should be as follows:
 
-Array
-(
+    Array
+    (
     [0] => Array
         (
             [documentName] => Annual Report 2018-19

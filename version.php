@@ -21,6 +21,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-$plugin->version   = 2019112400;        // The current plugin version (Date: YYYYMMDDXX)
+$plugin->version   = 2019112401;        // The current plugin version (Date: YYYYMMDDXX)
 $plugin->requires  = 2018120300;        // Requires this Moodle version
 $plugin->component = 'block_sritoniviewdocs'; // Full name of the plugin (used for diagnostics)

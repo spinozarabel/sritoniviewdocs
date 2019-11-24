@@ -3,8 +3,23 @@ This is a block for use in Moodle, developed by SriToni Learning Services - Used
 
 The block assumes that there is a user profile field containing a text string with JSON encoded data array.
 
-The array data should have key as document name and value as any valid URL that the user has permissions to view and download.
-The shortname of this user profile field needs to be set in the config settings of this plugin. The default is 'documentlinks'
+The data in the array before JSON encoding should be as follows:
+
+Array
+(
+    [0] => Array
+        (
+            [documentName] => Annual Report 2018-19
+            [fileId] => Some Google File ID
+        )
+
+    [1] => Array
+        (
+            [documentName] => Annual Report 2017-18
+            [fileId] => Some other Google file ID
+        )
+
+)
 
 The reason for this block is that Moodle core does not have any means of pushing individualized user documents to users.
 Moodle can push a common document to users but not individualized documents such as for example: reports, etc.

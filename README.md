@@ -37,3 +37,7 @@ No checks are done of any kind such as for example: Number of documents, order o
 Whatever is JSON encoded data is published.
 
 The admin, when installing this plugin needs to set the configuration settings for: 1) The shortname of the user profile field (The default is documentlinks), 2) The keystring for document name, and 3) The keystring for the Google file Id.
+
+The admin must also create the new user profile field that is needed for this plugin default shortname:documentlinks.
+
+The responsibility of populating this user profile field with relevant data for relevant users is the reposnibility of the admin (can be done using Google Apps Script for example as shown here.)

@@ -77,12 +77,14 @@ class block_sritoniviewdocs extends block_list {
         }
 
         // loop through the object for eac of the documentlinks
-        foreach ($docid_arr AS $key => $doc)
+        foreach ($docid_arr AS $doc)
         {
-            $docid        = $doc[$keystring_fileId];
+            $docid        = $doc[$keystring_fileId];    // obtained from JSON decoded array
             $documentName = format_string($doc[$keystring_documentName]);
             $docurl       = 'https://drive.google.com/open?id=' . $docid;
             $attrs        = ['alt' => $documentName];
+            //  create HTML. link($url, $text, array $attributes = null)
+            // add as next element in array for displaying as a list
             $this->content->items[] = \html_writer::link($docurl, $documentName, $attrs);
         }
 

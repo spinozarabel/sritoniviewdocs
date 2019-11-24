@@ -23,6 +23,10 @@ For example, in PHP The data array before JSON encoding if printed out should be
 
 )
 
+This when JSON encoded will look like this:
+
+[{"documentName":"Annual Report 2018-19","fileId":"Some Google File ID"},{"documentName":"Annual Report 2017-18","fileId":"Some other Google File ID"}]
+
 The reason for this block is that Moodle core does not have any means of pushing individualized user documents to users.
 Moodle can push a common document to all users but not individualized documents such as for example: reports, etc.
 The pushing of individualized documents to users can be done several ways as for example: From a webapp such as a Google Apps Script, etc., and is a separate topic.

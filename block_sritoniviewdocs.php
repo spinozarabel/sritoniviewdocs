@@ -41,8 +41,11 @@ class block_sritoniviewdocs extends block_list {
         $this->content->items = array();
         $this->content->icons = array();
 
+        // get the short name of the user profile field from block config settings
+        $shortname = get_config('block_sritoniviewdocs', 'field_shortname');
+
         // fetch data of user profile field containing the document ids
-        $field = $DB->get_record('user_info_field', array('shortname' => 'documentlinks'));
+        $field = $DB->get_record('user_info_field', array('shortname' => $shortname));
         $json_documentids = $DB->get_record('user_info_data', array(
                                                               		  'userid'   =>  $USER->id,
                                                               		  'fieldid'  =>  $field->id));

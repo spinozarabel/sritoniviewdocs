@@ -44,6 +44,12 @@ class block_sritoniviewdocs extends block_list {
         // get the short name of the user profile field from block config settings
         $shortname = get_config('block_sritoniviewdocs', 'field_shortname');
 
+        // get the key string for documentName from config settings
+        $keystring_documentName = get_config('block_sritoniviewdocs', 'keystring_documentName');
+
+        // get the key string for fileId from config settings
+        $keystring_fileId = get_config('block_sritoniviewdocs', 'keystring_fileId');
+
         // fetch data of user profile field containing the document ids
         $field = $DB->get_record('user_info_field', array('shortname' => $shortname));
         $json_documentids = $DB->get_record('user_info_data', array(
@@ -73,8 +79,8 @@ class block_sritoniviewdocs extends block_list {
         // loop through the object for eac of the documentlinks
         foreach ($docid_arr AS $key => $doc)
         {
-            $docid        = $doc["fileId"];
-            $documentName = format_string($doc["documentName"]);
+            $docid        = $doc[$keystring_fileId];
+            $documentName = format_string($doc[$keystring_documentName]);
             $docurl       = 'https://drive.google.com/open?id=' . $docid;
             $attrs        = ['alt' => $documentName];
             $this->content->items[] = \html_writer::link($docurl, $documentName, $attrs);

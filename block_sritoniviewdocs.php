@@ -55,7 +55,18 @@ class block_sritoniviewdocs extends block_list {
         $json_documentids = $DB->get_record('user_info_data', array(
                                                               		  'userid'   =>  $USER->id,
                                                               		  'fieldid'  =>  $field->id));
-        $json_notags = strip_tags(html_entity_decode($json_documentids->data));
+        // check to ensure that data object exists before operating on it
+        if (!$json_documentids->data)
+        {
+            // doessn't exist so set result to empty JSON string
+            $json_notags = "[]";
+        }
+        else
+        {
+            // valid data exists so we can operate on it
+            $json_notags = strip_tags(html_entity_decode($json_documentids->data));
+        }
+
 
         // check that this is a string before json_decode
         if ( !is_string($json_notags) )

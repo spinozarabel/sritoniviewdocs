@@ -57,7 +57,7 @@ class block_sritoniviewdocs extends block_list {
                                                               		  'fieldid'  =>  $field->id));
 
         // extract json data if not null, or set to blank json string
-        $json_notags = strip_tags(html_entity_decode($json_documentids->data)) ?? "";
+        $json_notags = strip_tags(html_entity_decode($json_documentids->data)) ?? "[]";
 
         // check that this is a string before json_decode
         if ( !is_string($json_notags) )
@@ -66,7 +66,7 @@ class block_sritoniviewdocs extends block_list {
             error_log("Error - variable json_notags is NOT a string - line 55 block_sritoniviewdocs.php");
             error_log(print_r($json_notags ,true));
 
-            $json_notags = "";
+            $json_notags = "[]";
         }
 
         // JSON decode the into an array

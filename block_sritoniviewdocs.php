@@ -83,7 +83,7 @@ class block_sritoniviewdocs extends block_list {
         {
             $docid        = $doc[$keystring_fileId];    // obtained from JSON decoded array
             $documentName = format_string($doc[$keystring_documentName]);
-            $docurl       = 'https://drive.google.com/open?id=' . $docid;
+            $docurl       = 'https://drive.google.com/file/d/' . $docid . '/view';
             $attrs        = ['alt' => $documentName];
             //  create HTML. link($url, $text, array $attributes = null)
             // add as next element in array for displaying as a list
